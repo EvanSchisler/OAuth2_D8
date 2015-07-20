@@ -6,7 +6,7 @@
  * Date: 20/07/15
  * Time: 11:59 AM
  */
-namespace Drupal\oauth2_server\Entity;
+namespace Drupal\oauth2_server;
 use
 
   Drupal\Core\Entity\EntityStorageInterface;
