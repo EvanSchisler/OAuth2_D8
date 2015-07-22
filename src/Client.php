@@ -63,12 +63,146 @@ class Client extends ContentEntityBase implements ClientInterface{
     return $this;
   }
 
-
   /**
    * {@inheritdoc}
    */
   public function setOwner(UserInterface $account) {
     $this->set('user_id', $account->id());
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getServer(){
+    return $this->get('server')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setServer($server){
+    $this->set('server', $server);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getLabel(){
+    return $this->get('label')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setLabel($label){
+    $this->set('label', $label);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getClientKey(){
+    return $this->get('client_key')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setClientKey($client_key){
+    $this->set('client_key', $client_key);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getClientSecret(){
+    return $this->get('client_secret')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setClientSecret($client_secret){
+    $this->set('client_secret', $client_secret);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getPublicKey(){
+    return $this->get('public_key')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setPublicKey($public_key){
+    $this->set('public_key', $public_key);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getRedirectUri(){
+    return $this->get('redirect_uri')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setRedirectUri($redirect_uri){
+    $this->set('redirect_uri', $redirect_uri);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getAutomaticAuthorization(){
+    return $this->get('automatic_authorization')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setAutomaticAuthorization($auto_auth){
+    $this->set('auto_authorization', $auto_auth);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getSettings(){
+    return $this->get('settings')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setSettings($settings){
+    $this->set('settings', $settings);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getLangcode(){
+    return $this->get('langcode')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setLangcode($langcode){
+    $this->set('langcode', $langcode);
     return $this;
   }
 
