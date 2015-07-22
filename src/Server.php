@@ -1,11 +1,11 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: eschisler
- * Date: 20/07/15
- * Time: 11:59 AM
+ * Date: 22/07/15
+ * Time: 11:54 AM
  */
+
 namespace Drupal\oauth2_server;
 
 use Drupal\Core\Entity\EntityStorageInterface;
@@ -14,8 +14,8 @@ use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\user\UserInterface;
 
-class Client extends ContentEntityBase implements ClientInterface{
 
+class Server extends ContentEntityBase implements ServerInterface {
   public static function preCreate(EntityStorageInterface $storage_controller, array &$values) {
     parent::preCreate($storage_controller, $values);
     $values += array(
@@ -73,27 +73,27 @@ class Client extends ContentEntityBase implements ClientInterface{
   }
 
   /**
-   * @param ClientInterface $entity_type
+   * @param ServerInterface $entity_type
    * Field definitions
    */
-  public static function baseFieldDefinitions(ClientInterface $entity_type) {
+  public static function baseFieldDefinitions(ServerInterface $entity_type) {
 
     // Standard field, used as unique if primary index.
     $fields['id'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('ID'))
-      ->setDescription(t('The ID of the Client entity.'))
+      ->setDescription(t('The ID of the Server entity.'))
       ->setReadOnly(TRUE);
 
 
     // Standard field, unique outside of the scope of the current project.
     $fields['uuid'] = BaseFieldDefinition::create('uuid')
       ->setLabel(t('UUID'))
-      ->setDescription(t('The UUID of the Client entity.'))
+      ->setDescription(t('The UUID of the Server entity.'))
       ->setReadOnly(TRUE);
 
-    $fields['server'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Server'))
-      ->setDescription(t('The {oauth2_server}.name of the parent server'))
+    $fields['name'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Name'))
+      ->setDescription(t('The machine name for a server.'))
       ->setSettings(array(
         'max_length' => 255,
         'not_null' => TRUE,
@@ -111,8 +111,8 @@ class Client extends ContentEntityBase implements ClientInterface{
       ->setDisplayConfigurable('view', TRUE);
 
     $fields['label'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Label;'))
-      ->setDescription(t('The label of the client'))
+      ->setLabel(t('Label'))
+      ->setDescription(t('The label of the server.'))
       ->setSettings(array(
         'max_length' => 255,
         'not_null' => TRUE,
@@ -130,107 +130,9 @@ class Client extends ContentEntityBase implements ClientInterface{
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    // The OAuth2 spec calls the client key "client_id", but we need that
-    // for the autoincrement.
-    $fields['client_key'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Client Key'))
-      ->setDescription(t('The client key'))
-      ->setSettings(array(
-        'max_length' => 255,
-        'not_null' => TRUE,
-      ))
-      ->setDisplayOptions('view', array(
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -6,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'string',
-        'weight' => -6,
-      ))
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
-
-    $fields['client_secret'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Client Secret'))
-      ->setDescription(t('The client secret'))
-      ->setSettings(array(
-        'max_length' => 255,
-        'not_null' => TRUE,
-      ))
-      ->setDisplayOptions('view', array(
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -5,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'string',
-        'weight' => -5,
-      ))
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
-
-    $fields['public_key'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Public Key'))
-      ->setDescription(t('The public key'))
-      ->setSettings(array(
-        'max_length' => 255,
-        'not_null' => TRUE,
-      ))
-      ->setDisplayOptions('view', array(
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -4,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'string',
-        'weight' => -4,
-      ))
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
-
-    $fields['redirect_uri'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Redirect URI'))
-      ->setDescription(t('The absolute URI to redirect to after authorization'))
-      ->setSettings(array(
-        'max_length' => 255,
-        'not_null' => TRUE,
-      ))
-      ->setDisplayOptions('view', array(
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -3,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'string',
-        'weight' => -3,
-      ))
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
-
-    $fields['automatic_authorization'] = BaseFieldDefinition::create('integer')
-      ->setLabel(t('Automatic Authorization'))
-      ->setDescription(t('Whether authorization should be completed without user confirmation.'))
-      ->setSettings(array(
-        'size' => 'tiny',
-        'not_null' => TRUE,
-        'default' => 0,
-      ))
-      ->setDisplayOptions('view', array(
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -2,
-      ))
-      ->setDisplayOptions('form', array(
-        'type' => 'string',
-        'weight' => -2,
-      ))
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
-
     $fields['settings'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Settings'))
-      ->setDescription(t('Client specific settings.'))
+      ->setDescription(t('Settings passed to the server library.'))
       ->setSettings(array(
         'size' => 'big',
         'not_null' => TRUE,
@@ -239,29 +141,54 @@ class Client extends ContentEntityBase implements ClientInterface{
       ->setDisplayOptions('view', array(
         'label' => 'above',
         'type' => 'string',
-        'weight' => -1,
+        'weight' => -6,
       ))
       ->setDisplayOptions('form', array(
         'type' => 'string',
-        'weight' => -1,
+        'weight' => -6,
       ))
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['status'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('Status'))
+      ->setDescription(t('The exportable status of the server'))
+      ->setSettings(array(
+        'size' => 'tiny',
+        'not_null' => TRUE,
+        // Set the default to ENTITY_CUSTOM without using the constant as it is
+        // not safe to use it at this point.
+        'default' => 0x01,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -5,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string',
+        'weight' => -5,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
 
-    $fields['langcode'] = BaseFieldDefinition::create('language')
-      ->setLabel(t('Language code'))
-      ->setDescription(t('The language code of Client entity.'));
-
-    $fields['created'] = BaseFieldDefinition::create('created')
-      ->setLabel(t('Created'))
-      ->setDescription(t('The time that the entity was created.'));
-
-
-    $fields['changed'] = BaseFieldDefinition::create('changed')
-      ->setLabel(t('Changed'))
-      ->setDescription(t('The time that the entity was last edited.'));
-
-    return $fields;
+    $fields['module'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Module'))
+      ->setDescription(t('The name of the providing module if the server has been defined in code.'))
+      ->setSettings(array(
+        'max_length' => 255,
+        'not_null' => FALSE,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string',
+        'weight' => -4,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
   }
 }
