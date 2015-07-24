@@ -13,11 +13,13 @@ use Drupal\user\EntityOwnerInterface;
 use Drupal\user\UserInterface;
 
 /**
- * Provides an interface defining a Client entity
+ * Provides an interface defining a Client entity.
+ *
  * @ingroup oauth2_server
  */
 
 interface ClientInterface extends ContentEntityInterface, EntityOwnerInterface{
+
   /**
    * Gets the created time.
    *
@@ -82,7 +84,7 @@ interface ClientInterface extends ContentEntityInterface, EntityOwnerInterface{
 
   /**
    * Sets the Client Server.
-   * 
+   *
    * @param $server
    *   The Client Server.
    *

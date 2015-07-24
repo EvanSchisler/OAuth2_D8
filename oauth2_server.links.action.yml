@@ -1,0 +1,7 @@
+oauth2_server.client_add:
+  route_name: oauth2_server.client_add
+  title: 'Add Client'
+
+  appears_on:
+    - entity.oauth2_server_client.collection
+    - entity.oauth2_server_client.canonical
