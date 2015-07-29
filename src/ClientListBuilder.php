@@ -25,7 +25,7 @@ class ClientListBuilder extends EntityListBuilder {
   public function render() {
     $build['description'] = array(
       '#markup' => $this->t('OAuth2_Server implements a Clients model. These clients are fieldable entities. You can manage the fields on the <a href="@adminlink">Clients admin page</a>.', array(
-        '@adminlink' => \Drupal::urlGenerator()->generateFromRoute('OAuth2_server.client_settings'),
+        '@adminlink' => \Drupal::urlGenerator()->generateFromRoute('oauth2_server.client_settings'),
       )),
     );
     $build['table'] = parent::render();
