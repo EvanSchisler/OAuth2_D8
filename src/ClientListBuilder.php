@@ -6,7 +6,7 @@
  * Time: 4:50 PM
  */
 
-namespace Drupal\content_entity_example\Entity\Controller;
+namespace Drupal\oauth2_server;
 use
 
   Drupal\Core\Entity\EntityInterface;
