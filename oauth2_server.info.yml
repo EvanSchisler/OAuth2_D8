@@ -4,6 +4,7 @@ type: module
 package: "OAuth2"
 dependencies:
   - entity_reference
+  - options
 core: 8.x
 configure: admin/structure/oauth2-servers
 

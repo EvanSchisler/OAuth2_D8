@@ -1,5 +1,5 @@
-entity.oauth2_server_client/canonical:
-  path: 'admin/oauth2_server/oauth2_server_client/{oauth2_server_client}'
+entity.oauth2_server_client.canonical:
+  path: '/admin/oauth2_server/oauth2_server_client/{oauth2_server_client}'
   defaults:
     _entity_view: 'oauth2_server_client'
     title: 'Client Content'
@@ -15,7 +15,7 @@ entity.oauth2_server_client.collection:
     _permission: 'view client entity'
 
 oauth2_server_client.client_add:
-  path: 'admin/oauth2_server/oauth2_server_client/add'
+  path: '/admin/oauth2_server/oauth2_server_client/add'
   defaults:
     _entity_form: oauth2_server_client.add
     _title: 'Add Client'

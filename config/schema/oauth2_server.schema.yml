@@ -13,4 +13,3 @@ oauth2_server.scope.*:
     description:
       type: string
       label: 'The description used to describe the scope on the authorization form.'
-

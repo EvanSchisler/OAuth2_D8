@@ -6,12 +6,13 @@
  * Date: 20/07/15
  * Time: 11:59 AM
  */
-namespace Drupal\oauth2_server;
+namespace Drupal\oauth2_server\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\oauth2_server\ClientInterface;
 use Drupal\user\UserInterface;
 
 class Client extends ContentEntityBase implements ClientInterface{
