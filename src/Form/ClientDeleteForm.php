@@ -25,7 +25,7 @@ class ClientDeleteForm extends ContentEntityConfirmFormBase {
   /**
    * {@inheritdoc}
    *
-   * If the delete command is canceled, return to the contact list.
+   * If the delete command is canceled, return to the client list.
    */
   public function getCancelURL() {
     return new Url('entity.oauth2_server_client.collection');

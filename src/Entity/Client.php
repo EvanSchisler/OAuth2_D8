@@ -15,7 +15,41 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\oauth2_server\ClientInterface;
 use Drupal\user\UserInterface;
 
-class Client extends ContentEntityBase implements ClientInterface{
+/**
+ * Defines the client entity class
+ *
+ * @ContentEntityType(
+ *  id = "client",
+ *  label = @Translation("Client"),
+ *  handlers = {
+ *    "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
+ *    "list_builder" = "Drupal\oauth2_server\ClientListBuilder",
+ *     "form" = {
+ *       "add" = "Drupal\oauth2_server\Form\ClientForm",
+ *       "edit" = "Drupal\oauth2_server\Form\ClientForm",
+ *       "delete" = "Drupal\oauth2_server\Form\ClientDeleteForm",
+ *     },
+ *     "access" = "Drupal\oauth2_server\ClientAccessControlHandler",
+ *   },
+ *   base_table = "oauth2_server_client",
+ *   admin_permission = "administer oauth2_server entity",
+ *   fieldable = TRUE,
+ *   entity_keys = {
+ *     "id" = "id",
+ *     "label" = "name",
+ *     "uuid" = "uuid"
+ *   },
+ *   links = {
+ *     "canonical" = "/admin/oauth2_server/oauth2_server_client/{oauth2_server_client}",
+ *     "edit-form" = "/admin/oauth2_server/oauth2_server_client/{oauth2_server_client}/edit",
+ *     "delete-form" = "/admin/oauth2_server/oauth2_server_client/{oauth2_server_client}/delete",
+ *     "collection" = "/oauth2_server/list"
+ *   },
+ *   field_ui_base_route = "oauth2_server.client_settings",
+ * )
+ *
+ */
+class Client extends ContentEntityBase implements ClientInterface {
 
   public static function preCreate(EntityStorageInterface $storage_controller, array &$values) {
     parent::preCreate($storage_controller, $values);
@@ -208,10 +242,10 @@ class Client extends ContentEntityBase implements ClientInterface{
   }
 
   /**
-   * @param ClientInterface $entity_type
+   * @param EntityTypeInterface $entity_type
    * Field definitions
    */
-  public static function baseFieldDefinitions(ClientInterface $entity_type) {
+  public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
 
     // Standard field, used as unique if primary index.
     $fields['id'] = BaseFieldDefinition::create('integer')

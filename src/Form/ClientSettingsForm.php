@@ -6,7 +6,7 @@
  * Time: 4:53 PM
  */
 
-namespace Drupal\content_entity_example\Form;
+namespace Drupal\oauth2_server\Form;
 use
 
   Drupal\Core\Form\FormBase;
@@ -47,7 +47,7 @@ class ClientSettingsForm extends FormBase {
    *   An associative array containing the current state of the form.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['contact_settings']['#markup'] = 'Settings form for OAuth2_Server. Manage field settings here.';
+    $form['client_settings']['#markup'] = 'Settings form for OAuth2_Server. Manage field settings here.';
     return $form;
   }
 }

@@ -42,7 +42,7 @@ class ClientListBuilder extends EntityListBuilder {
    */
   public function buildHeader() {
     //@TODO - Change these to match the client entity
-    $header['id'] = $this->t('ContactID');
+    $header['id'] = $this->t('ClientID');
     $header['name'] = $this->t('Name');
     $header['first_name'] = $this->t('First Name');
     $header['gender'] = $this->t('Gender');
@@ -54,7 +54,7 @@ class ClientListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     //@TODO - Change these to match the client entity
-    /* @var $entity \Drupal\content_entity_example\Entity\Contact */
+    /* @var $entity \Drupal\ouath2_server\Client */
     $row['id'] = $entity->id();
     $row['name'] = $entity->link();
     $row['first_name'] = $entity->first_name->value;

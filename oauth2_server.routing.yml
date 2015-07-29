@@ -23,7 +23,7 @@ oauth2_server_client.client_add:
     _entity_create_access: 'oauth2_server_client'
 
 entity.oauth2_server_client.edit_form:
-  path: '/admin/oauth2_server/oauth2_server_client/add'
+  path: '/admin/oauth2_server/oauth2_server_client/{oauth2_server_client}/edit'
   defaults:
     _entity_form: oauth2_server_client.edit
     _title: 'Edit Client'
@@ -31,7 +31,7 @@ entity.oauth2_server_client.edit_form:
     _entity_access: 'oauth2_server_client.edit'
 
 entity.oauth2_server_client.delete_form:
-  path: '/admin/oauth2_server/oauth2_server_client0/{oauth2_server_client}/delete'
+  path: '/admin/oauth2_server/oauth2_server_client/{oauth2_server_client}/delete'
   defaults:
     _entity_form: oauth2_server_client.delete
     _title: 'Delete Client'
@@ -41,7 +41,7 @@ entity.oauth2_server_client.delete_form:
 oauth2_server.client_settings:
   path: '/admin/structure/oauth2_server_client_settings'
   defaults:
-    _form: '\Drupal\oauth2_server\Form\ContactSettingsForm'
+    _form: '\Drupal\oauth2_server\Form\ClientSettingsForm'
     _title: 'Client Settings'
   requirements:
     _permissions: 'administer client entity'
