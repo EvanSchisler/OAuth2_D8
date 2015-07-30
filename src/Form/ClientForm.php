@@ -13,7 +13,7 @@ use
 use Drupal\Core\Language\Language;
 use Drupal\Core\Form\FormStateInterface;
 
-class ClientForm extends ClientEntityForm {
+class ClientForm extends ContentEntityForm {
 
   public function buildForm(array $form, FormStateInterface$form_state) {
 

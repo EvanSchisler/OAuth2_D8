@@ -19,7 +19,7 @@ use Drupal\user\UserInterface;
  * Defines the client entity class
  *
  * @ContentEntityType(
- *  id = "client",
+ *  id = "oauth2_server_client",
  *  label = @Translation("Client"),
  *  handlers = {
  *    "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
