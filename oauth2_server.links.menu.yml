@@ -10,6 +10,6 @@ oauth2_server_client.admin.structure.settings:
  parent: system.admin_structure
 oauth2_server.scope.list:
   title: Scope List
-  description: 'Administer settings'
+  description: 'Configure Scope settings'
   parent: system.admin_structure
   route_name: oauth2_server.scope.list

@@ -5,3 +5,13 @@
  * Date: 29/07/15
  * Time: 2:01 PM
  */
+
+/**
+ * Menu argument loader. Returns a scope entity
+ *
+ * @param $id
+ * @return \Drupal\Core\Entity\EntityInterface|static
+ */
+function scope_load($id) {
+  return ScopeEntity::load($id);
+}

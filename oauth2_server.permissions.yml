@@ -3,8 +3,8 @@ view client entity:
 delete client entity:
   title: Delete client entity
 add client entity:
-  title: Delete client entity
+  title: Add client entity
 configure client entity:
   title: Edit client entity
 administer client entity:
-  title: Administer settings
+  title: Administer client settings

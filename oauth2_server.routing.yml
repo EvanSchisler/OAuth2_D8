@@ -39,7 +39,7 @@ entity.oauth2_server_client.delete_form:
     _entity_access: 'oauth2_server_client.delete'
 
 oauth2_server.client_settings:
-  path: 'admin/structure/oauth2_server_client_settings'
+  path: '/admin/structure/oauth2_server_client_settings'
   defaults:
     _form: '\Drupal\oauth2_server\Form\ClientSettingsForm'
     _title: 'Client Settings'
