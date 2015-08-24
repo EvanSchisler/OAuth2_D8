@@ -46,3 +46,29 @@ oauth2_server.client_settings:
   requirements:
     _permissions: 'administer client entity'
 
+oauth2_server.scope.list:
+  path: '/admin/structure/scope'
+  defaults:
+    _entity_list: 'scope'
+    _title: 'Scope'
+oauth2_server.scope.add:
+  path: '/admin/structure/scope/add'
+  defaults:
+    _entity_form: 'scope.add'
+    _title: 'Add a new Scope:'
+  requirements:
+    _permission: 'administer site configuration'
+oauth2_server.scope.edit:
+  path: '/admin/strucure/scope/edit/{scope}'
+  defaults:
+    _entity_form: 'scope.edit'
+    _title: 'Edit scope'
+  requirements:
+    _permission: 'administer site configuration'
+oauth2_server.scope.delete:
+  path: '/admin/structure/scope/delete/{scope}'
+  defaults:
+    _entity_form: 'scope.delete'
+    _title: 'Delete Scope'
+  requirements:
+    _permission: 'administer site configuration'

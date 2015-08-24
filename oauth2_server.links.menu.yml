@@ -8,3 +8,8 @@ oauth2_server_client.admin.structure.settings:
  description: 'Configure Client Entity'
  route_name: oauth2_server.client_settings
  parent: system.admin_structure
+oauth2_server.scope.list:
+  title: Scope List
+  description: 'Administer settings'
+  parent: system.admin_structure
+  route_name: oauth2_server.scope.list
