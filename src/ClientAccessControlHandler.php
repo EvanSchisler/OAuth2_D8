@@ -20,7 +20,7 @@ class ClientAccessControlHandler extends EntityAccessControlHandler {
         return AccessResult::allowedIfHasPermission($account, 'view client entity');
 
       case 'edit':
-        return AccessResult::allowedIfHasPermission($account, 'edit client entity');
+        return AccessResult::allowedIfHasPermission($account, 'configure client entity');
 
       case 'delete':
         return AccessResult::allowedIfHadPermission($account, 'delete client entity');

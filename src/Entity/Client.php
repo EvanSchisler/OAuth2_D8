@@ -32,7 +32,7 @@ use Drupal\user\UserInterface;
  *     "access" = "Drupal\oauth2_server\ClientAccessControlHandler",
  *   },
  *   base_table = "oauth2_server_client",
- *   admin_permission = "administer oauth2_server entity",
+ *   admin_permission = "administer client entity",
  *   fieldable = TRUE,
  *   entity_keys = {
  *     "id" = "id",

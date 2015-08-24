@@ -54,11 +54,9 @@ class ClientListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     //@TODO - Change these to match the client entity
-    /* @var $entity \Drupal\ouath2_server\Client */
+    /* @var $entity \Drupal\oauth2_server\Client */
     $row['id'] = $entity->id();
     $row['name'] = $entity->link();
-    $row['first_name'] = $entity->first_name->value;
-    $row['gender'] = $entity->gender->value;
     return $row + parent::buildRow($entity);
   }
 }
