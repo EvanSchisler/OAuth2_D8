@@ -22,7 +22,7 @@ class ClientEntityListBuilder extends EntityListBuilder {
    */
   public function buildHeader() {
     $header['id'] = $this->t('Client ID');
-    $header['name'] = $this->t('Name');
+    $header['server'] = $this->t('Server');
     return $header + parent::buildHeader();
   }
 
@@ -32,7 +32,7 @@ class ClientEntityListBuilder extends EntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\oauth2_server\Entity\ClientEntity */
     $row['id'] = $entity->id();
-    $row['name'] = \Drupal::l(
+    $row['label'] = \Drupal::l(
       $this->getLabel($entity),
       new Url(
         'entity.oauth2_server_client.edit_form', array(
