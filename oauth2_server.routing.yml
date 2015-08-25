@@ -1,0 +1,84 @@
+
+# Client routing definition
+entity.client.canonical:
+  path: '/admin/client/{client}'
+  defaults:
+    _entity_view: 'client'
+    _title: 'The OAuth2 Client'
+  requirements:
+    _entity_access: 'client.view'
+
+entity.client.collection:
+  path: '/admin/client'
+  defaults:
+    _entity_list: 'client'
+    _title: 'The OAuth2 Client list'
+  requirements:
+    _permission: 'view the oauth2 client entities'
+
+entity.client.add_form:
+  path: '/admin/client/add'
+  defaults:
+    _entity_form: client.add
+    _title: 'Add The OAuth2 Client'
+  requirements:
+    _permission: 'add the oauth2 client entities'
+
+entity.client.edit_form:
+  path: '/admin/client/{client}/edit'
+  defaults:
+    _entity_form: client.edit
+    _title: 'Edit The OAuth2 Client'
+  requirements:
+    _permission: 'edit the oauth2 client entities'
+
+entity.client.delete_form:
+  path: '/admin/client/{client}/delete'
+  defaults:
+    _entity_form: client.delete
+    _title: 'Delete The OAuth2 Client'
+  requirements:
+    _permission: 'delete the oauth2 client entities'
+
+client.settings:
+  path: 'admin/structure/client'
+  defaults:
+   _form: '\Drupal\oauth2_server\Entity\Form\ClientSettingsForm'
+   _title: 'The OAuth2 Client settings'
+  requirements:
+    _permission: 'administer the oauth2 client entities'
+
+
+# Scope routing definition
+entity.scope.collection:
+  path: '/admin/structure/scope'
+  defaults:
+    _entity_list: 'scope'
+    _title: 'The OAuth2 Scope'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.scope.add_form:
+  path: '/admin/structure/scope/add'
+  defaults:
+    _entity_form: 'scope.add'
+    _title: 'Add The OAuth2 Scope'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.scope.edit_form:
+  path: '/admin/structure/scope/{scope}'
+  defaults:
+    _entity_form: 'scope.edit'
+    _title: 'Edit The OAuth2 Scope'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.scope.delete_form:
+  path: '/admin/structure/scope/{scope}/delete'
+  defaults:
+    _entity_form: 'scope.delete'
+    _title: 'Delete The OAuth2 Scope'
+  requirements:
+    _permission: 'administer site configuration'
+

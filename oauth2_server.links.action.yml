@@ -1,0 +1,13 @@
+entity.client.add_form:
+  route_name: entity.client.add_form
+  title: 'Add The OAuth2 Client'
+  appears_on:
+    - entity.client.collection
+    - entity.client.canonical
+
+entity.scope.add_form:
+  route_name: 'entity.scope.add_form'
+  title: 'Add The OAuth2 Scope'
+  appears_on:
+    - entity.scope.collection
+

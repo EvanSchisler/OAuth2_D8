@@ -1,0 +1,19 @@
+# The OAuth2 Client menu items definition
+entity.client.collection:
+  title: 'The OAuth2 Client list'
+  route_name: entity.client.collection
+  description: 'List The OAuth2 Client entities'
+
+client.admin.structure.settings:
+  title: The OAuth2 Client settings
+  description: 'Configure The OAuth2 Client entities'
+  route_name: client.settings
+  parent: system.admin_structure
+
+# The OAuth2 Scope menu items definition
+entity.scope.collection:
+  title: 'The OAuth2 Scope'
+  route_name: entity.scope.collection
+  description: 'List The OAuth2 Scope'
+  parent: system.admin_structure
+

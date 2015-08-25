@@ -1,0 +1,6 @@
+name: oauth2_server
+type: module
+description: OAuth2 implementation for Drupal 8
+core: 8.x
+package: OAuth2
+
