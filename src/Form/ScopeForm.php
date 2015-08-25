@@ -1,54 +1,48 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: eschisler
- * Date: 24/08/15
- * Time: 1:42 PM
+ * @file
+ * Contains Drupal\oauth2_server\Form\ScopeForm.
  */
 
 namespace Drupal\oauth2_server\Form;
 
-use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\Core\Url;
+use Drupal\Core\Entity\EntityForm;
+use Drupal\Core\Form\FormStateInterface;
 
-class ScopeForm extends EntityForm
-{
-
-  public function form(array $form, array &$form_state)
-  {
-
+/**
+ * Class ScopeForm.
+ *
+ * @package Drupal\oauth2_server\Form
+ */
+class ScopeForm extends EntityForm {
+  /**
+   * {@inheritdoc}
+   */
+  public function form(array $form, FormStateInterface $form_state) {
     $form = parent::form($form, $form_state);
 
     $scope = $this->entity;
-
-    // Change page title for the edit operation
-    if ($this->operation == 'edit') {
-      $form['#title'] = $this->t('Edit Scope: @name', array('@name' => $scope->name));
-    }
-
-    // The flower name.
-    $form['name'] = array(
+    $form['label'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Name'),
+      '#title' => $this->t('Label'),
       '#maxlength' => 255,
-      '#default_value' => $scope->name,
-      '#description' => $this->t("Scope name."),
+      '#default_value' => $scope->label(),
+      '#description' => $this->t("Label for the The OAuth2 Scope."),
       '#required' => TRUE,
     );
 
-    // The unique machine name of the flower.
     $form['id'] = array(
       '#type' => 'machine_name',
-      '#maxlength' => EntityTypeInterface::BUNDLE_MAX_LENGTH,
-      '#default_value' => $scope->id,
-      '#disabled' => !$scope->isNew(),
+      '#default_value' => $scope->id(),
       '#machine_name' => array(
-        'source' => array('name'),
-        'exists' => 'scope_load'
+        'exists' => '\Drupal\oauth2_server\Entity\Scope::load',
       ),
+      '#disabled' => !$scope->isNew(),
     );
+
+    /* You will need additional form elements for your custom properties. */
 
     return $form;
   }
@@ -56,24 +50,23 @@ class ScopeForm extends EntityForm
   /**
    * {@inheritdoc}
    */
-  public function save(array $form, array &$form_state)
-  {
-
+  public function save(array $form, FormStateInterface $form_state) {
     $scope = $this->entity;
-
     $status = $scope->save();
 
-    if ($status) {
-      // Setting the success message.
-      drupal_set_message($this->t('Saved the scope: @name.', array(
-        '@name' => $scope->name,
-      )));
-    } else {
-      drupal_set_message($this->t('The @name scope was not saved.', array(
-        '@name' => $scope->name,
-      )));
+    switch ($status) {
+      case SAVED_NEW:
+        drupal_set_message($this->t('Created the %label The OAuth2 Scope.', [
+          '%label' => $scope->label(),
+        ]));
+        break;
+
+      default:
+        drupal_set_message($this->t('Saved the %label The OAuth2 Scope.', [
+          '%label' => $scope->label(),
+        ]));
     }
-    $url = new Url('scope.list');
-    $form_state['redirect'] = $url->toString();
+    $form_state->setRedirectUrl($scope->urlInfo('collection'));
   }
+
 }

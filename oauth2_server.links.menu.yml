@@ -1,15 +1,19 @@
-entity.oauth2_server_client.collection:
-  title: 'OAuth2 Server: Clients Listing'
-  route_name: entity.oauth2_server_client.collection
-  description: 'List Clients'
-  weight: 10
-oauth2_server_client.admin.structure.settings:
- title: Client Settings
- description: 'Configure Client Entity'
- route_name: oauth2_server.client_settings
- parent: system.admin_structure
-oauth2_server.scope.list:
-  title: Scope List
-  description: 'Configure Scope settings'
+# The OAuth2 Client menu items definition
+entity.client.collection:
+  title: 'The OAuth2 Client list'
+  route_name: entity.client.collection
+  description: 'List The OAuth2 Client entities'
+
+client.admin.structure.settings:
+  title: The OAuth2 Client settings
+  description: 'Configure The OAuth2 Client entities'
+  route_name: client.settings
   parent: system.admin_structure
-  route_name: oauth2_server.scope.list
+
+# The OAuth2 Scope menu items definition
+entity.scope.collection:
+  title: 'The OAuth2 Scope'
+  route_name: entity.scope.collection
+  description: 'List The OAuth2 Scope'
+  parent: system.admin_structure
+

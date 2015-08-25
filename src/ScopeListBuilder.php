@@ -1,9 +1,8 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: eschisler
- * Date: 24/08/15
- * Time: 1:57 PM
+ * @file
+ * Contains Drupal\oauth2_server\ScopeListBuilder.
  */
 
 namespace Drupal\oauth2_server;
@@ -11,14 +10,16 @@ namespace Drupal\oauth2_server;
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;
 
-class ScopeListBuilder extends ConfigEntityListBuilder
-{
-
+/**
+ * Provides a listing of The OAuth2 Scope entities.
+ */
+class ScopeListBuilder extends ConfigEntityListBuilder {
   /**
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['label'] = $this->t('Name');
+    $header['label'] = $this->t('The OAuth2 Scope');
+    $header['id'] = $this->t('Machine name');
     return $header + parent::buildHeader();
   }
 
@@ -26,21 +27,10 @@ class ScopeListBuilder extends ConfigEntityListBuilder
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-
-    // Label
     $row['label'] = $this->getLabel($entity);
-
+    $row['id'] = $entity->id();
+    // You probably want a few more properties here...
     return $row + parent::buildRow($entity);
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function render() {
-
-    $build = parent::render();
-
-    $build['#empty'] = $this->t('There are no scopes available.');
-    return $build;
-  }
 }

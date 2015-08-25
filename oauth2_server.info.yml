@@ -1,11 +1,6 @@
-name: OAuth2 Server
-description: Provides OAuth2 server functionality
+name: oauth2_server
 type: module
-package: "OAuth2"
-dependencies:
-  - entity_reference
-  - options
+description: OAuth2 implementation for Drupal 8
 core: 8.x
+package: OAuth2
 
-# Information added by Drupal.org packaging script on 2015-05-07
-version: VERSION

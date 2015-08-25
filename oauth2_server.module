@@ -1,17 +1,39 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: eschisler
- * Date: 29/07/15
- * Time: 2:01 PM
- */
 
 /**
- * Menu argument loader. Returns a scope entity
- *
- * @param $id
- * @return \Drupal\Core\Entity\EntityInterface|static
+ * @file
+ * Contains oauth2_server.module.
  */
-function scope_load($id) {
-  return ScopeEntity::load($id);
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function oauth2_server_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the oauth2_server module.
+    case 'help.page.oauth2_server':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('OAuth2 implementation for Drupal 8') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function oauth2_server_theme() {
+  $theme = [];
+
+  $theme['client'] = array(
+    'render element' => 'elements',
+    'file' => 'client.page.inc',
+    'template' => 'client',
+  );
+
+  return $theme;
 }

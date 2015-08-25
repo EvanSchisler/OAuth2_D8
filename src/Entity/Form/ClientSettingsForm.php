@@ -1,19 +1,23 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: eschisler
- * Date: 27/07/15
- * Time: 4:53 PM
+ * @file
+ * Contains Drupal\oauth2_server\Entity\Form\ClientSettingsForm.
  */
 
-namespace Drupal\oauth2_server\Form;
-use
+namespace Drupal\oauth2_server\Entity\Form;
 
-  Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
+/**
+ * Class ClientSettingsForm.
+ *
+ * @package Drupal\oauth2_server\Form
+ *
+ * @ingroup oauth2_server
+ */
 class ClientSettingsForm extends FormBase {
-
   /**
    * Returns a unique string identifying the form.
    *
@@ -21,7 +25,7 @@ class ClientSettingsForm extends FormBase {
    *   The unique string identifying the form.
    */
   public function getFormId() {
-    return 'oauth2_server_settings';
+    return 'Client_settings';
   }
 
   /**
@@ -29,25 +33,28 @@ class ClientSettingsForm extends FormBase {
    *
    * @param array $form
    *   An associative array containing the structure of the form.
-   * @param FormStateInterface $form_state
-   *   An associative array containing the current state of the form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The current state of the form.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Empty implementation of the abstract submit class.
   }
 
+
   /**
-   * Define the form used for OAuth2_Server settings.
-   * @return array
-   *   Form definition array.
+   * Defines the settings form for The OAuth2 Client entities.
    *
    * @param array $form
    *   An associative array containing the structure of the form.
-   * @param FormStateInterface $form_state
-   *   An associative array containing the current state of the form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The current state of the form.
+   *
+   * @return array
+   *   Form definition array.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['client_settings']['#markup'] = 'Settings form for OAuth2_Server. Manage field settings here.';
+    $form['Client_settings']['#markup'] = 'Settings form for The OAuth2 Client entities. Manage field settings here.';
     return $form;
   }
+
 }

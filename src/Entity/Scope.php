@@ -1,26 +1,22 @@
 <?php
+
 /**
- * Created by PhpStorm.
- * User: eschisler
- * Date: 24/08/15
- * Time: 1:32 PM
+ * @file
+ * Contains Drupal\oauth2_server\Entity\Scope.
  */
 
 namespace Drupal\oauth2_server\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
-use Drupal\Core\Config\Entity\ConfigEntityInterface;
 use Drupal\oauth2_server\ScopeInterface;
 
-
 /**
- * Defines a scope configuration entity class.
+ * Defines the The OAuth2 Scope entity.
  *
  * @ConfigEntityType(
  *   id = "scope",
- *   label = @Translation("Scope"),
- *   fieldable = FALSE,
- *   controllers = {
+ *   label = @Translation("The OAuth2 Scope"),
+ *   handlers = {
  *     "list_builder" = "Drupal\oauth2_server\ScopeListBuilder",
  *     "form" = {
  *       "add" = "Drupal\oauth2_server\Form\ScopeForm",
@@ -32,28 +28,30 @@ use Drupal\oauth2_server\ScopeInterface;
  *   admin_permission = "administer site configuration",
  *   entity_keys = {
  *     "id" = "id",
- *     "label" = "name"
+ *     "label" = "label",
+ *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "edit-form" = "/scope.edit",
- *     "delete-form" = "/scope.delete"
+ *     "canonical" = "/admin/structure/scope/{scope}",
+ *     "edit-form" = "/admin/structure/scope/{scope}/edit",
+ *     "delete-form" = "/admin/structure/scope/{scope}/delete",
+ *     "collection" = "/admin/structure/visibility_group"
  *   }
  * )
  */
 class Scope extends ConfigEntityBase implements ScopeInterface {
-
   /**
-   * The ID of the scope.
+   * The The OAuth2 Scope ID.
    *
    * @var string
    */
-  public $id;
+  protected $id;
 
   /**
-   * The name of the scope.
+   * The The OAuth2 Scope label.
    *
    * @var string
    */
-  public $name;
+  protected $label;
 
 }

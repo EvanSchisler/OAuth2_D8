@@ -1,23 +1,22 @@
-oauth2_server.client.settings_tab:
-  route_name: oauth2_server.client_settings
-  title: Settings
-  base_route: oauth2_server.client_settings
+# The OAuth2 Client routing definition
+client.settings_tab:
+  route_name: client.settings
+  title: 'Settings'
+  base_route: client.settings
 
+entity.client.canonical:
+  route_name: entity.client.canonical
+  base_route: entity.client.canonical
+  title: 'View'
 
-oauth2_server.client.view:
-  route_name: entity.oauth2_server_client.canonical
-  base_route: entity.oauth2_server_client.canonical
-  title: View
-
-
-oauth2_server.client.page_edit:
-  route_name: entity.oauth2_server_client.edit_form
-  base_route: entity.oauth2_server_client.canonical
+entity.client.edit_form:
+  route_name: entity.client.edit_form
+  base_route: entity.client.canonical
   title: Edit
 
-
-oauth2_server.client.delete_confirm:
-  route_name:  entity.oauth2_server_client.delete_form
-  base_route:  entity.oauth2_server_client.canonical
+entity.client.delete_form:
+  route_name:  entity.client.delete_form
+  base_route:  entity.client.canonical
   title: Delete
   weight: 10
+
