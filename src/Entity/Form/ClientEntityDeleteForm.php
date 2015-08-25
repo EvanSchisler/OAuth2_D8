@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\oauth2_server\Entity\Form\ClientDeleteForm.
+ * Contains Drupal\oauth2_server\Entity\Form\ClientEntityDeleteForm.
  */
 
 namespace Drupal\oauth2_server\Entity\Form;
@@ -12,11 +12,11 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * Provides a form for deleting The OAuth2 Client entities.
+ * Provides a form for deleting Client entities.
  *
  * @ingroup oauth2_server
  */
-class ClientDeleteForm extends ContentEntityConfirmFormBase {
+class ClientEntityDeleteForm extends ContentEntityConfirmFormBase {
   /**
    * {@inheritdoc}
    */
@@ -28,7 +28,7 @@ class ClientDeleteForm extends ContentEntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function getCancelUrl() {
-    return new Url('entity.client.collection');
+    return new Url('entity.oauth2_server_client.collection');
   }
 
   /**

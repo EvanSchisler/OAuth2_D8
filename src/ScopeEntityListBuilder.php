@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\oauth2_server\ScopeListBuilder.
+ * Contains Drupal\oauth2_server\ScopeEntityListBuilder.
  */
 
 namespace Drupal\oauth2_server;
@@ -11,14 +11,14 @@ use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;
 
 /**
- * Provides a listing of The OAuth2 Scope entities.
+ * Provides a listing of Scope entities.
  */
-class ScopeListBuilder extends ConfigEntityListBuilder {
+class ScopeEntityListBuilder extends ConfigEntityListBuilder {
   /**
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['label'] = $this->t('The OAuth2 Scope');
+    $header['label'] = $this->t('Scope');
     $header['id'] = $this->t('Machine name');
     return $header + parent::buildHeader();
   }

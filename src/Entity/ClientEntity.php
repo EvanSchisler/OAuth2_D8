@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\oauth2_server\Entity\Client.
+ * Contains Drupal\oauth2_server\Entity\ClientEntity.
  */
 
 namespace Drupal\oauth2_server\Entity;
@@ -11,46 +11,46 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\oauth2_server\ClientInterface;
+use Drupal\oauth2_server\ClientEntityInterface;
 use Drupal\user\UserInterface;
 
 /**
- * Defines the The OAuth2 Client entity.
+ * Defines the Client entity.
  *
  * @ingroup oauth2_server
  *
  * @ContentEntityType(
- *   id = "client",
- *   label = @Translation("The OAuth2 Client"),
+ *   id = "oauth2_server_client",
+ *   label = @Translation("Client"),
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\oauth2_server\ClientListBuilder",
- *     "views_data" = "Drupal\oauth2_server\Entity\ClientViewsData",
+ *     "list_builder" = "Drupal\oauth2_server\ClientEntityListBuilder",
+ *     "views_data" = "Drupal\oauth2_server\Entity\ClientEntityViewsData",
  *
  *     "form" = {
- *       "default" = "Drupal\oauth2_server\Entity\Form\ClientForm",
- *       "add" = "Drupal\oauth2_server\Entity\Form\ClientForm",
- *       "edit" = "Drupal\oauth2_server\Entity\Form\ClientForm",
- *       "delete" = "Drupal\oauth2_server\Entity\Form\ClientDeleteForm",
+ *       "default" = "Drupal\oauth2_server\Entity\Form\ClientEntityForm",
+ *       "add" = "Drupal\oauth2_server\Entity\Form\ClientEntityForm",
+ *       "edit" = "Drupal\oauth2_server\Entity\Form\ClientEntityForm",
+ *       "delete" = "Drupal\oauth2_server\Entity\Form\ClientEntityDeleteForm",
  *     },
- *     "access" = "Drupal\oauth2_server\ClientAccessControlHandler",
+ *     "access" = "Drupal\oauth2_server\ClientEntityAccessControlHandler",
  *   },
- *   base_table = "client",
- *   admin_permission = "administer Client entity",
+ *   base_table = "oauth2_server_client",
+ *   admin_permission = "administer ClientEntity entity",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "name",
  *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "canonical" = "/admin/client/{client}",
- *     "edit-form" = "/admin/client/{client}/edit",
- *     "delete-form" = "/admin/client/{client}/delete"
+ *     "canonical" = "/admin/oauth2_server_client/{oauth2_server_client}",
+ *     "edit-form" = "/admin/oauth2_server_client/{oauth2_server_client}/edit",
+ *     "delete-form" = "/admin/oauth2_server_client/{oauth2_server_client}/delete"
  *   },
- *   field_ui_base_route = "client.settings"
+ *   field_ui_base_route = "oauth2_server_client.settings"
  * )
  */
-class Client extends ContentEntityBase implements ClientInterface {
+class ClientEntity extends ContentEntityBase implements ClientEntityInterface {
   /**
    * {@inheritdoc}
    */
@@ -111,17 +111,17 @@ class Client extends ContentEntityBase implements ClientInterface {
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields['id'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('ID'))
-      ->setDescription(t('The ID of the The OAuth2 Client entity.'))
+      ->setDescription(t('The ID of the Client entity.'))
       ->setReadOnly(TRUE);
 
     $fields['uuid'] = BaseFieldDefinition::create('uuid')
       ->setLabel(t('UUID'))
-      ->setDescription(t('The UUID of the The OAuth2 Client entity.'))
+      ->setDescription(t('The UUID of the Client entity.'))
       ->setReadOnly(TRUE);
 
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Authored by'))
-      ->setDescription(t('The user ID of author of the The OAuth2 Client entity.'))
+      ->setDescription(t('The user ID of author of the Client entity.'))
       ->setRevisionable(TRUE)
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
@@ -147,7 +147,7 @@ class Client extends ContentEntityBase implements ClientInterface {
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
-      ->setDescription(t('The name of the The OAuth2 Client entity.'))
+      ->setDescription(t('The name of the Client entity.'))
       ->setSettings(array(
         'max_length' => 50,
         'text_processing' => 0,
@@ -167,7 +167,7 @@ class Client extends ContentEntityBase implements ClientInterface {
 
     $fields['langcode'] = BaseFieldDefinition::create('language')
       ->setLabel(t('Language code'))
-      ->setDescription(t('The language code for the The OAuth2 Client entity.'));
+      ->setDescription(t('The language code for the Client entity.'));
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))

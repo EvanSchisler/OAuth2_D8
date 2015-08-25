@@ -1,84 +1,84 @@
 
-# Client routing definition
-entity.client.canonical:
-  path: '/admin/client/{client}'
+# ClientEntity routing definition
+entity.oauth2_server_client.canonical:
+  path: '/admin/oauth2_server_client/{oauth2_server_client}'
   defaults:
-    _entity_view: 'client'
-    _title: 'The OAuth2 Client'
+    _entity_view: 'oauth2_server_client'
+    _title: 'Client'
   requirements:
-    _entity_access: 'client.view'
+    _entity_access: 'oauth2_server_client.view'
 
-entity.client.collection:
-  path: '/admin/client'
+entity.oauth2_server_client.collection:
+  path: '/admin/oauth2_server_client'
   defaults:
-    _entity_list: 'client'
-    _title: 'The OAuth2 Client list'
+    _entity_list: 'oauth2_server_client'
+    _title: 'Client list'
   requirements:
-    _permission: 'view the oauth2 client entities'
+    _permission: 'view client entities'
 
-entity.client.add_form:
-  path: '/admin/client/add'
+entity.oauth2_server_client.add_form:
+  path: '/admin/oauth2_server_client/add'
   defaults:
-    _entity_form: client.add
-    _title: 'Add The OAuth2 Client'
+    _entity_form: oauth2_server_client.add
+    _title: 'Add Client'
   requirements:
-    _permission: 'add the oauth2 client entities'
+    _permission: 'add client entities'
 
-entity.client.edit_form:
-  path: '/admin/client/{client}/edit'
+entity.oauth2_server_client.edit_form:
+  path: '/admin/oauth2_server_client/{oauth2_server_client}/edit'
   defaults:
-    _entity_form: client.edit
-    _title: 'Edit The OAuth2 Client'
+    _entity_form: oauth2_server_client.edit
+    _title: 'Edit Client'
   requirements:
-    _permission: 'edit the oauth2 client entities'
+    _permission: 'edit client entities'
 
-entity.client.delete_form:
-  path: '/admin/client/{client}/delete'
+entity.oauth2_server_client.delete_form:
+  path: '/admin/oauth2_server_client/{oauth2_server_client}/delete'
   defaults:
-    _entity_form: client.delete
-    _title: 'Delete The OAuth2 Client'
+    _entity_form: oauth2_server_client.delete
+    _title: 'Delete Client'
   requirements:
-    _permission: 'delete the oauth2 client entities'
+    _permission: 'delete client entities'
 
-client.settings:
-  path: 'admin/structure/client'
+oauth2_server_client.settings:
+  path: 'admin/structure/oauth2_server_client'
   defaults:
-   _form: '\Drupal\oauth2_server\Entity\Form\ClientSettingsForm'
-   _title: 'The OAuth2 Client settings'
+   _form: '\Drupal\oauth2_server\Entity\Form\ClientEntitySettingsForm'
+   _title: 'Client settings'
   requirements:
-    _permission: 'administer the oauth2 client entities'
+    _permission: 'administer client entities'
 
 
-# Scope routing definition
-entity.scope.collection:
-  path: '/admin/structure/scope'
+# ScopeEntity routing definition
+entity.oauth2_server_scope.collection:
+  path: '/admin/structure/oauth2_server_scope'
   defaults:
-    _entity_list: 'scope'
-    _title: 'The OAuth2 Scope'
-  requirements:
-    _permission: 'administer site configuration'
-
-entity.scope.add_form:
-  path: '/admin/structure/scope/add'
-  defaults:
-    _entity_form: 'scope.add'
-    _title: 'Add The OAuth2 Scope'
+    _entity_list: 'oauth2_server_scope'
+    _title: 'Scope'
   requirements:
     _permission: 'administer site configuration'
 
-entity.scope.edit_form:
-  path: '/admin/structure/scope/{scope}'
+entity.oauth2_server_scope.add_form:
+  path: '/admin/structure/oauth2_server_scope/add'
   defaults:
-    _entity_form: 'scope.edit'
-    _title: 'Edit The OAuth2 Scope'
+    _entity_form: 'oauth2_server_scope.add'
+    _title: 'Add Scope'
   requirements:
     _permission: 'administer site configuration'
 
-entity.scope.delete_form:
-  path: '/admin/structure/scope/{scope}/delete'
+entity.oauth2_server_scope.edit_form:
+  path: '/admin/structure/oauth2_server_scope/{oauth2_server_scope}'
   defaults:
-    _entity_form: 'scope.delete'
-    _title: 'Delete The OAuth2 Scope'
+    _entity_form: 'oauth2_server_scope.edit'
+    _title: 'Edit Scope'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.oauth2_server_scope.delete_form:
+  path: '/admin/structure/oauth2_server_scope/{oauth2_server_scope}/delete'
+  defaults:
+    _entity_form: 'oauth2_server_scope.delete'
+    _title: 'Delete Scope'
   requirements:
     _permission: 'administer site configuration'
 

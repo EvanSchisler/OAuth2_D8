@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\oauth2_server\ClientAccessControlHandler.
+ * Contains Drupal\oauth2_server\ClientEntityAccessControlHandler.
  */
 
 namespace Drupal\oauth2_server;
@@ -13,11 +13,11 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 
 /**
- * Access controller for the The OAuth2 Client entity.
+ * Access controller for the Client entity.
  *
- * @see \Drupal\oauth2_server\Entity\Client.
+ * @see \Drupal\oauth2_server\Entity\ClientEntity.
  */
-class ClientAccessControlHandler extends EntityAccessControlHandler {
+class ClientEntityAccessControlHandler extends EntityAccessControlHandler {
   /**
    * {@inheritdoc}
    */
@@ -25,13 +25,13 @@ class ClientAccessControlHandler extends EntityAccessControlHandler {
 
     switch ($operation) {
       case 'view':
-        return AccessResult::allowedIfHasPermission($account, 'view the oauth2 client entities');
+        return AccessResult::allowedIfHasPermission($account, 'view client entities');
 
       case 'update':
-        return AccessResult::allowedIfHasPermission($account, 'edit the oauth2 client entities');
+        return AccessResult::allowedIfHasPermission($account, 'edit client entities');
 
       case 'delete':
-        return AccessResult::allowedIfHasPermission($account, 'delete the oauth2 client entities');
+        return AccessResult::allowedIfHasPermission($account, 'delete client entities');
     }
 
     return AccessResult::allowed();
@@ -41,7 +41,7 @@ class ClientAccessControlHandler extends EntityAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
-    return AccessResult::allowedIfHasPermission($account, 'add the oauth2 client entities');
+    return AccessResult::allowedIfHasPermission($account, 'add client entities');
   }
 
 }

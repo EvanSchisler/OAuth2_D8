@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\oauth2_server\ClientListBuilder.
+ * Contains Drupal\oauth2_server\ClientEntityListBuilder.
  */
 
 namespace Drupal\oauth2_server;
@@ -12,16 +12,16 @@ use Drupal\Core\Entity\EntityListBuilder;
 use Drupal\Core\Url;
 
 /**
- * Defines a class to build a listing of The OAuth2 Client entities.
+ * Defines a class to build a listing of Client entities.
  *
  * @ingroup oauth2_server
  */
-class ClientListBuilder extends EntityListBuilder {
+class ClientEntityListBuilder extends EntityListBuilder {
   /**
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['id'] = $this->t('The OAuth2 Client ID');
+    $header['id'] = $this->t('Client ID');
     $header['name'] = $this->t('Name');
     return $header + parent::buildHeader();
   }
@@ -30,13 +30,13 @@ class ClientListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /* @var $entity \Drupal\oauth2_server\Entity\Client */
+    /* @var $entity \Drupal\oauth2_server\Entity\ClientEntity */
     $row['id'] = $entity->id();
     $row['name'] = \Drupal::l(
       $this->getLabel($entity),
       new Url(
-        'entity.client.edit_form', array(
-          'client' => $entity->id(),
+        'entity.oauth2_server_client.edit_form', array(
+          'oauth2_server_client' => $entity->id(),
         )
       )
     );

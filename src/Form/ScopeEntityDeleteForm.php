@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\oauth2_server\Form\ScopeDeleteForm.
+ * Contains Drupal\oauth2_server\Form\ScopeEntityDeleteForm.
  */
 
 namespace Drupal\oauth2_server\Form;
@@ -12,9 +12,9 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * Builds the form to delete The OAuth2 Scope entities.
+ * Builds the form to delete Scope entities.
  */
-class ScopeDeleteForm extends EntityConfirmFormBase {
+class ScopeEntityDeleteForm extends EntityConfirmFormBase {
   /**
    * {@inheritdoc}
    */
@@ -26,7 +26,7 @@ class ScopeDeleteForm extends EntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function getCancelUrl() {
-    return new Url('entity.scope.collection');
+    return new Url('entity.oauth2_server_scope.collection');
   }
 
   /**

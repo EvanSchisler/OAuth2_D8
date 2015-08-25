@@ -1,6 +1,6 @@
-oauth2_server.scope.*:
+oauth2_server.oauth2_server_scope.*:
   type: config_entity
-  label: 'The OAuth2 Scope config'
+  label: 'Scope config'
   mapping:
     id:
       type: string

@@ -1,15 +1,15 @@
-add the oauth2 client entities:
-  title: 'Create new The OAuth2 Client entities'
+add client entities:
+  title: 'Create new Client entities'
 
-administer the oauth2 client entities:
-  title: 'Administer The OAuth2 Client entities'
-  description: 'Allow to access the administration form to configure The OAuth2 Client entities.'
+administer client entities:
+  title: 'Administer Client entities'
+  description: 'Allow to access the administration form to configure Client entities.'
 
-delete the oauth2 client entities:
-  title: 'Delete The OAuth2 Client entities'
+delete client entities:
+  title: 'Delete Client entities'
 
-edit the oauth2 client entities:
-  title: 'Edit The OAuth2 Client entities'
+edit client entities:
+  title: 'Edit Client entities'
 
-view the oauth2 client entities:
-  title: 'View The OAuth2 Client entities'
+view client entities:
+  title: 'View Client entities'

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\oauth2_server\Entity\Form\ClientForm.
+ * Contains Drupal\oauth2_server\Entity\Form\ClientEntityForm.
  */
 
 namespace Drupal\oauth2_server\Entity\Form;
@@ -12,16 +12,16 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\Language;
 
 /**
- * Form controller for The OAuth2 Client edit forms.
+ * Form controller for Client edit forms.
  *
  * @ingroup oauth2_server
  */
-class ClientForm extends ContentEntityForm {
+class ClientEntityForm extends ContentEntityForm {
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    /* @var $entity \Drupal\oauth2_server\Entity\Client */
+    /* @var $entity \Drupal\oauth2_server\Entity\ClientEntity */
     $form = parent::buildForm($form, $form_state);
     $entity = $this->entity;
 
@@ -54,17 +54,17 @@ class ClientForm extends ContentEntityForm {
 
     switch ($status) {
       case SAVED_NEW:
-        drupal_set_message($this->t('Created the %label The OAuth2 Client.', [
+        drupal_set_message($this->t('Created the %label Client.', [
           '%label' => $entity->label(),
         ]));
         break;
 
       default:
-        drupal_set_message($this->t('Saved the %label The OAuth2 Client.', [
+        drupal_set_message($this->t('Saved the %label Client.', [
           '%label' => $entity->label(),
         ]));
     }
-    $form_state->setRedirect('entity.client.edit_form', ['client' => $entity->id()]);
+    $form_state->setRedirect('entity.oauth2_server_client.edit_form', ['oauth2_server_client' => $entity->id()]);
   }
 
 }

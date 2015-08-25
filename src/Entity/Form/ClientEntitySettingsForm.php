@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\oauth2_server\Entity\Form\ClientSettingsForm.
+ * Contains Drupal\oauth2_server\Entity\Form\ClientEntitySettingsForm.
  */
 
 namespace Drupal\oauth2_server\Entity\Form;
@@ -11,13 +11,13 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class ClientSettingsForm.
+ * Class ClientEntitySettingsForm.
  *
  * @package Drupal\oauth2_server\Form
  *
  * @ingroup oauth2_server
  */
-class ClientSettingsForm extends FormBase {
+class ClientEntitySettingsForm extends FormBase {
   /**
    * Returns a unique string identifying the form.
    *
@@ -25,7 +25,7 @@ class ClientSettingsForm extends FormBase {
    *   The unique string identifying the form.
    */
   public function getFormId() {
-    return 'Client_settings';
+    return 'ClientEntity_settings';
   }
 
   /**
@@ -42,7 +42,7 @@ class ClientSettingsForm extends FormBase {
 
 
   /**
-   * Defines the settings form for The OAuth2 Client entities.
+   * Defines the settings form for Client entities.
    *
    * @param array $form
    *   An associative array containing the structure of the form.
@@ -53,7 +53,7 @@ class ClientSettingsForm extends FormBase {
    *   Form definition array.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['Client_settings']['#markup'] = 'Settings form for The OAuth2 Client entities. Manage field settings here.';
+    $form['ClientEntity_settings']['#markup'] = 'Settings form for Client entities. Manage field settings here.';
     return $form;
   }
 
