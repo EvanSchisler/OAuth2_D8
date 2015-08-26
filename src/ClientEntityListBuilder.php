@@ -32,7 +32,7 @@ class ClientEntityListBuilder extends EntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\oauth2_server\Entity\ClientEntity */
     $row['id'] = $entity->id();
-    $row['label'] = \Drupal::l(
+    $row['server'] = \Drupal::l(
       $this->getLabel($entity),
       new Url(
         'entity.oauth2_server_client.edit_form', array(

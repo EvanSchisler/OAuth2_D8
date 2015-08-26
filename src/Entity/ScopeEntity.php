@@ -52,6 +52,20 @@ class ScopeEntity extends ConfigEntityBase implements ScopeEntityInterface {
    *
    * @var string
    */
-  protected $label;
+  protected $server;
+
+  /**
+   * The Scope label.
+   *
+   * @var string
+   */
+  protected $name;
+
+  /**
+   * The Scope label.
+   *
+   * @var string
+   */
+  protected $description;
 
 }

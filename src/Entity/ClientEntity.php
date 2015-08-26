@@ -286,9 +286,8 @@ class ClientEntity extends ContentEntityBase implements ClientEntityInterface {
       ->setLabel(t('Settings'))
       ->setDescription(t('Client specific settings.'))
       ->setSettings(array(
-        'size' => 'big',
+        'max_length' => 255,
         'not_null' => TRUE,
-        'serialize' => TRUE,
       ))
       ->setDisplayOptions('view', array(
         'label' => 'above',

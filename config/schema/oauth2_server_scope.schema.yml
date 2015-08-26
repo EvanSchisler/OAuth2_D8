@@ -5,8 +5,14 @@ oauth2_server.oauth2_server_scope.*:
     id:
       type: string
       label: 'ID'
-    label:
+    server:
       type: label
-      label: 'Label'
+      label: 'Server'
+    name:
+      type: string
+      label: 'name'
+    description:
+      type: string
+      label: 'description'
     uuid:
       type: string
